@@ -1,4 +1,5 @@
 {
+  "homepage": "https://xn--diseoseimpresiones3d-66b.com.ar/",
   "name": "app",
   "private": true,
   "version": "0.0.0",
@@ -17,6 +18,7 @@
     "@mui/material": "^6.4.5",
     "@mui/styled-engine-sc": "^6.4.3",
     "@mui/styles": "^6.4.5",
+    "axios": "^1.8.1",
     "emotion": "^11.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

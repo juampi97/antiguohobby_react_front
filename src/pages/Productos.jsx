@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef  } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
@@ -7,7 +7,11 @@ import FilterBarXs from "../components/productos/FilterBarXs";
 import ProductosListContainer from "../components/productos/ProductsListContainer";
 
 const Productos = () => {
-  const baseUrl = "http://localhost:8080";
+
+  const prodRoute = "https://antiguohobby-react-back.onrender.com";
+  const devRoute = "http://localhost:8080";
+  const environment = "prod"; // "prod" || "dev"
+  const baseUrl = environment === "prod" ? prodRoute : devRoute;
 
   const [token, setToken] = useState(null);
   const [datos, setDatos] = useState([]);
@@ -142,7 +146,7 @@ const Productos = () => {
     });
     categorias.sort();
     setCategories(categorias);
-    setProductos(data)
+    setProductos(data);
   }, [data]);
 
   //Aplicar filtro de productos
@@ -150,12 +154,14 @@ const Productos = () => {
   const prevLg = useRef(null);
 
   useEffect(() => {
-    let filteredData
+    let filteredData;
     // Cambio en selectedCategoriesXs
     if (prevXs.current !== selectedCategoriesXs) {
-      filteredData = data.filter((item) => item.category == selectedCategoriesXs) 
+      filteredData = data.filter(
+        (item) => item.category == selectedCategoriesXs
+      );
     }
-    
+
     // Cambio en selectedCategoriesLg
     if (prevLg.current !== selectedCategoriesLg) {
       filteredData = data.filter((item) =>
@@ -166,10 +172,10 @@ const Productos = () => {
     }
 
     // Actualizo variable productos
-    if(selectedCategoriesLg.length == 0 && selectedCategoriesXs == ""){
-      setProductos(data)
+    if (selectedCategoriesLg.length == 0 && selectedCategoriesXs == "") {
+      setProductos(data);
     } else {
-      setProductos(filteredData)
+      setProductos(filteredData);
     }
 
     // Actualizamos las referencias
@@ -201,10 +207,18 @@ const Productos = () => {
           }}
         >
           {!loading && categories ? (
-            <FilterBarXs categories={categories} selectedCategoriesXs={selectedCategoriesXs} setSelectedCategoriesXs={setSelectedCategoriesXs} />
+            <FilterBarXs
+              categories={categories}
+              selectedCategoriesXs={selectedCategoriesXs}
+              setSelectedCategoriesXs={setSelectedCategoriesXs}
+            />
           ) : null}
           {!loading && categories ? (
-            <FilterBarLg categories={categories} selectedCategoriesLg={selectedCategoriesLg} setSelectedCategoriesLg={setSelectedCategoriesLg}/>
+            <FilterBarLg
+              categories={categories}
+              selectedCategoriesLg={selectedCategoriesLg}
+              setSelectedCategoriesLg={setSelectedCategoriesLg}
+            />
           ) : null}
           <ProductosListContainer
             productos={productos}
