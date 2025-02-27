@@ -10,7 +10,7 @@ const OpcionesContacto = ({contactoData}) => {
         {contactoData.map((data, index) => (
           <Grid
             item
-            size={{ xs: 12, md: 4 }}
+            size={{ xs: 12, md: 3 }}
             sx={{
               height: "250px",
               display:"flex",

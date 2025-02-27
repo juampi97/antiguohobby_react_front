@@ -77,6 +77,24 @@ const Footer = () => {
                   +54 011 6210 2695
                 </Typography>
               </Link>
+              <Link
+                target="_blank"
+                href="https://maps.app.goo.gl/xbAay9UQCEKZPxkv6"
+                underline="none"
+              >
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#fff",
+                    paddingLeft: "10px",
+                    paddingY: "5px",
+                    textAlign: "center",
+                    fontWeight: 500,
+                  }}
+                >
+                  Victor Bassi 424, Haedo
+                </Typography>
+              </Link>
               <Box
                 sx={{
                   display: "flex",

@@ -21,6 +21,7 @@ const Contacto = () => {
       description:
         "Podemos coordinar una videollamada para analisis de proyectos y responder dudas.",
     },
+    { title: "Ubicacion", description: "Victor Bassi 424, Haedo" },
     { title: "Horario", description: "Lunes a viernes de 9 a 18 hs." },
   ];
 
